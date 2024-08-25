@@ -60,7 +60,7 @@ func addTask(t string, d string) {
 }
 
 func showTasksCompact() {
-	writer := tabwriter.NewWriter(os.Stdout, 10, 10, 1, ' ', 0)
+	writer := tabwriter.NewWriter(os.Stdout, 10, 10, 3, ' ', 0)
 	tasks := readCsv()
 
 	if assignId() == 1 {
@@ -79,7 +79,7 @@ func showTasksCompact() {
 }
 
 func showTasksExtended() {
-	writer := tabwriter.NewWriter(os.Stdout, 10, 10, 1, ' ', 0)
+	writer := tabwriter.NewWriter(os.Stdout, 10, 10, 3, ' ', 0)
 	tasks := readCsv()
 
 	if assignId() == 1 {
