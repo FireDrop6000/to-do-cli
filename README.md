@@ -87,4 +87,4 @@ $ todo remove <taskid>
  
 ### Release
 
-You can find the [releases](https://github.com/FireDrop6000/to-do-cli/releases/tag/v1.0.0) of this todo list on the releases tab of this repo.
+You can find the [releases](https://github.com/FireDrop6000/to-do-cli/releases/tag/v1.0.1) of this todo list on the releases tab of this repo.
