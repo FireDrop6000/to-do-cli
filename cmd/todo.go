@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"text/tabwriter"
 	"time"
 
@@ -70,11 +71,20 @@ func showTasksCompact() {
 
 	defer writer.Flush()
 
-	fmt.Fprintln(writer, "ID\tTask\tCreated")
+	fmt.Fprintln(writer, "ID\tTask\tCreated\tDue")
+	count := 0
 	for _, task := range tasks {
 		created, _ := time.Parse(time.DateTime, task[2])
 		due := timediff.TimeDiff(created)
-		fmt.Fprintf(writer, "%v\t%v\t%v\n", task[0], task[1], due)
+		if strings.EqualFold(task[3], "Incomplete") {
+			fmt.Fprintf(writer, "%v\t%v\t%v\t%v\n", task[0], task[1], due, task[4])
+			count += 1
+		}
+	}
+
+	if count == 0 {
+		fmt.Fprintln(writer, "---\t---\t---\t---")
+		fmt.Println("Looks like all your tasks are completed! Have some rest\n")
 	}
 }
 
